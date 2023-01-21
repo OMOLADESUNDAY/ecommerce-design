@@ -1,0 +1,10 @@
+.language_container{
+    width: 50px;
+    padding: 0 1rem;
+    background-color: var(--text-color);
+    color: var(--text-black);
+}
+.single_lang{
+    cursor: pointer;
+    z-index: 2;
+}

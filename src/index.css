@@ -5,10 +5,10 @@
   list-style: none;
 }
 :root {
-  --color-bg:rgba(0,0,0,0.85);
+  --color-bg:rgb(255, 255, 255);
   /* --color-bg: rgba(107, 111, 117, 0.466); */
   --color-bg-variant: rgba(35, 37, 37, 0.6);
-  --color-primary:rgba(223, 165, 8, 0.671);
+  --color-primary:rgba(2, 29, 1, 0.952);
   /* --color-primary:rgb(37, 3, 92); */
   --color-secondary:rgb(34, 162, 194);
   
@@ -73,7 +73,7 @@
 
 body{
   background-color: var(--color-bg);
-  color: var(--text-color);
+  color: var(--text-black);
 
 }
 .container{

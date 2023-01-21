@@ -1,0 +1,34 @@
+.above_container{
+    background-color: var(--color-primary);
+    color: var(--text-color);
+    padding: 0.2rem 0;
+    position: relative;
+}
+.above_inner_container{
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.top{
+    display: flex;
+    align-items: center;
+}
+.line{
+    width: 1px;
+    height: 15px;
+    margin: 0 0.2rem;
+    background-color: var(--text-color);
+}
+.dropdown{
+    cursor: pointer;
+}
+.lang_con{
+    position: absolute;
+    right: 13%;
+}
+.location_con{
+    position: absolute;
+    right: 5%;
+}

@@ -1,30 +1,25 @@
 import React from 'react'
+import { useReducer } from 'react';
 import { useState } from 'react';
-const Gruh = ({name,description}) => {
-    const [more, setMore] = useState(5);
-    const [see, seeMore] = useState(true);
-    
-    const showMore = (description) => {
-      seeMore(!see);
-      if (see === true) {
-        setMore(description.length);
-        console.log(description);
-      } else {
-        setMore(5);
-      }
-    };
+import { reducer } from './reducer';
+
+const defaultState={
+  price:50,
+  name:'gruh',
+  show:false
+}
+const Gruh = () => {
+  const changeName=()=>{
+    const newName='sunday stephen'
+    dispatch({type:"CHANGING NAME",payload:newName})
+   
+  }
+  const [state,dispatch]=useReducer(reducer,defaultState)
   return (
     <div >
-      <div>{name}</div>
-      <div>
-        {description.slice(0, more)}
-        <span
-          style={{ cursor: "pointer" }}
-          onClick={() => showMore(description)}
-        >
-          {see ? " see more" : " see less"}
-        </span>
-      </div>
+      {state.price}
+      {state.name}
+      <button onClick={changeName}>change name</button>   
     </div>
   );
 }
