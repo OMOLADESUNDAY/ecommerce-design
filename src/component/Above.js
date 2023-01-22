@@ -11,19 +11,25 @@ import Locations from './Locations'
 export const langContext = createContext();
 const Above = () => {
   const [lang ,setLang]=useState('Eng')
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState("Nigeria");
   const [displayTracker,setDisplayTracker]=useState(false)
+  const [displayTracker2, setDisplayTracker2] = useState(false);
   
-  const locationHandler=()=>{
-    setDisplayTracker(!displayTracker)
+  const locationHandler=(name)=>{
+    setLocation(name)
   }
   const languageHandler=(name)=>{
     console.log(name)
     setLang(name)
   }
-  
+  const locationShowHandler=()=>{
+    setDisplayTracker2(!displayTracker2);
+  }
+  const languageShowHandler = () => {
+    setDisplayTracker(!displayTracker);
+  };
   return (
-    <langContext.Provider value={languageHandler}>
+    <langContext.Provider value={{languageHandler,locationHandler}}>
       <section className="above_container">
         <div className="above_inner_container">
           <div className="top">
@@ -37,22 +43,21 @@ const Above = () => {
           </div>
           <div className="top">
             <p>{lang}</p>
-            <FaAngleDown className="dropdown" onClick={languageHandler} />
-            <p>Location</p>
+            <FaAngleDown className="dropdown" onClick={languageShowHandler} />
             <p>{location}</p>
-            <FaAngleDown className="dropdown" onClick={locationHandler} />
+            <FaAngleDown className="dropdown" onClick={locationShowHandler} />
           </div>
         </div>
         <div className="lang_con">
           {languagesdata.map((language) => {
-            const { id, name } = language;
-            return <Languages key={language.id} language={language} />;
+            return(
+              displayTracker?<Languages key={language.id} language={language} />:null
+            ) 
           })}
         </div>
         <div className="location_con">
           {locationdata.map((location) => {
-            const { id, name } = location;
-            return <Locations key={location.id} location={location} />;
+            return displayTracker2?<Locations key={location.id} location={location} />:null;
           })}
         </div>
       </section>
